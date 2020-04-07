@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Home</title>
+{% endblock %}
+<br>
+
+{% block body %}
+<br>
+<h1>Home Page</h1>
+<main role="main">
+    <div class="jumbotron">
+      <div class="col-sm-8 mx-auto">
+        <h1>Welcome</h1>
+        <p>This database web application manages data associated with a local weekly pinball league. Each team in the league has a home bar (the location or venue) where they host opposing teams. There are weekly matches where teams are paired-up to compete against each other at one of the home bars.</p>
+        <p>This application is intended to be used by team members. The web application will allow for information regarding league schedule of matches,the teams playing those matches, and information about the bars and which pinball machines are located at those bars.</p>
+          <a class="btn btn-primary" href="/teams" role="button">View Pinball League Teams &raquo;</a>
+      </div>
+    </div>
+  </main>
+  <br>
+{% endblock %}

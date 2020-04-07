@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Venues</title>
+{% endblock %}
+<br>
+
+{% block body %}
+<br>
+<h1>Pinball League Venues</h1>
+
+    <hr>
+    <h2>Add new Venue to League:</h2>
+    <form action="/venues" method="POST">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter Venue Name" aria-label="Enter Venue Name">
+        <br>
+        <label for="name">Address</label>
+        <input class="form-control" type="text" name="address" id="address" placeholder="Enter Venue Address" aria-label="Enter Venue Address">
+        <br>
+        <label for="name">City</label>
+        <input class="form-control" type="text" name="city" id="city" placeholder="Enter City" aria-label="Enter City">
+        <br>
+        <label for="name">State</label>
+        <input class="form-control" type="text" name="state" id="state" placeholder="Enter State" aria-label="Enter State">
+        <br>
+        <input type="submit" value="Post">
+    </form>
+    <hr>
+
+    {% for venue in venues %}
+        <h2>{{ venue.name }}</h2>
+        <hr>
+        <h3>{{ venue.address }}</h3>
+        <p>{{ venue.city }} , {{ venue.state }}</p>
+        <a class="btn btn-danger" href="/venues/delete/{{venue.id}}">Delete</a>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Teams</title>
+{% endblock %}
+<br>
+
+{% block body %}
+<br>
+<h1>Pinball League Teams</h1>
+
+    <hr>
+    <h2>Add new Team to League:</h2>
+    <form action="/teams" method="POST">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Enter Team Name" aria-label="Enter Team Name">
+        <br>
+        <input type="submit" value="Post">
+    </form>
+    <hr>
+
+    {% for team in teams %}
+        <h2>{{ team.name }}</h2>
+        <hr>
+        <a class="btn btn-danger" href="/teams/delete/{{team.id}}">Delete</a>
+    {% endfor %}
+{% endblock %}
