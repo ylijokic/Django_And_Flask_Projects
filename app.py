@@ -16,13 +16,14 @@ class Venue(db.Model):
     address = db.Column(db.String(250), nullable=False)
     city = db.Column(db.String(250), nullable=False)
     state = db.Column(db.String(250), nullable=False)
+    home_team = db.relationship('team', backref='venue', uselist=False)
 
 class Team(db.Model):
     __tablename__ = 'team'
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
-    # home_venue_id = Column(Integer, ForeignKey('venue.id'))
+    home_venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'), unique=True)
 
 # Route to Home Page
 @app.route("/")
