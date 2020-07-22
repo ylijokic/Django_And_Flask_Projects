@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+
+{% block head %}
+{% endblock %} 
+
+{% block body %}
+<h1>Welcome to the Amazon Scraper!</h1>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Search for Amazon Items:</h1>
+            <hr>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Item Name:</label>
+                    <input type="text" class="form-control" name="name" placeholder="Type Item Name to Search For">
+                </div>
+                <div class="form-group">
+                    <label for="min">Minimum Price:</label>
+                    <input type="number" class="form-control" name="min" placeholder="Minimum Price">
+                </div>
+                <div class="form-group">
+                    <label for="max">Maximum Price:</label>
+                    <input type="number" class="form-control" name="max" placeholder="Maximum Price">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
