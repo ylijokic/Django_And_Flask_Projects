@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1>Here are the search results for {{ name }}</h1>
+<hr>
+<div class="container">
+    <h1>Best Item:</h1>
+    {{ dictionary['best_item'] }}
+</div>
+
+<h3 class="text-muted">Back to Home Page<a href="{{ url_for('index') }}" class="ml-2">Home</a> </h3>
+{% endblock %}
