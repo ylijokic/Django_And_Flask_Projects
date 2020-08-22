@@ -26,8 +26,11 @@ def index():
 
         amazon = AmazonAPI(name, filters, BASE_URL, CURRENCY)
         data = amazon.run()
-        GenerateReport(NAME, FILTERS, BASE_URL, CURRENCY, data)
-        return redirect(request.url)
+        obj = GenerateReport(name, filters, BASE_URL, CURRENCY, data)
+        report = GenerateReport.get_report(obj)
+        print(report)
+
+        return render_template('report.html', dictionary=report, name=name)
 
     return render_template('index.html')
 
@@ -35,4 +38,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=4444, debug=True)

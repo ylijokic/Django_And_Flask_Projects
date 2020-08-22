@@ -24,7 +24,7 @@ class GenerateReport:
         self.filters = filters
         self.base_link = base_link
         self.currency = currency
-        report = {
+        self.report = {
             'title': self.file_name,
             'date': self.get_now(),
             'best_item': self.get_best_item(),
@@ -35,9 +35,12 @@ class GenerateReport:
         }
         print("Generating the report")
         with open(f"{DIRECTORY}/{file_name}.json", 'w') as f:
-            json.dump(report, f)
+            json.dump(self.report, f)
         print("Done")
 
+    def get_report(self):
+        return self.report
+        
     @staticmethod
     def get_now():
         now = datetime.now()
@@ -198,6 +201,6 @@ class AmazonAPI:
 
 if __name__ == '__main__':
     print('HEY!!')
-    amazon = AmazonAPI(NAME, FILTERS, BASE_URL, CURRENCY)
-    data = amazon.run()
-    GenerateReport(NAME, FILTERS, BASE_URL, CURRENCY, data)
+    # amazon = AmazonAPI(NAME, FILTERS, BASE_URL, CURRENCY)
+    # data = amazon.run()
+    # GenerateReport(NAME, FILTERS, BASE_URL, CURRENCY, data)
